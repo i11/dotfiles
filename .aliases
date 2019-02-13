@@ -149,3 +149,12 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Cosh aliases for latest
+for c in gsutil gcloud docker-credential-gcloud tig psql sbt; do
+  alias_command="alias $(echo -n $c)=\"cosh ${c}\""
+  eval ${alias_command}
+done
+
+alias mvn='cosh mvn:latest-java8'
+alias gradle='cosh gradle:latest-java8'
